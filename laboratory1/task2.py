@@ -1,4 +1,5 @@
 import math
+import re
 
 def check ():
 	ans = input ()
@@ -9,15 +10,11 @@ def check ():
 		check()
 
 def read ():
-	try:
-		a = float(input ())
-	except ValueError:
+	a = input ()
+	while (not bool (re.match(r'(?:[0]\.\d+)|(?:[1-9](?:\d+)?(?:\.\d+)?)', a))) | (float(a)<0) | (float(a)>180):
 		print ("Введіть число від 0 до 180")
-		a = read ()
-	if (a<0) | (a>180):
-		print ("Введіть число від 0 до 180")
-		a = read ()
-	return a
+		a = input ()
+	return float(a)
 
 def main ():
 	print ("Введіть перший і другий кут трикутника")
