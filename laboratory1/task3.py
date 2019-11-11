@@ -1,4 +1,5 @@
 import math
+import re
 
 def check ():
 	ans = input ()
@@ -10,7 +11,7 @@ def check ():
 
 def read ():
 	a = input ()
-	while not bool (re.match(r'(?:[0]\.\d+)|(?:[1-9](?:\d+)?(?:\.\d+)?)', a)):
+	while not bool (re.match(r'[+-]?((?:[0]\.\d+)|(?:[1-9](?:\d+)?(?:\.\d+)?))\Z', a)):
 		print ("Введіть дійсне число")
 		a = input ()
 	return float(a)
