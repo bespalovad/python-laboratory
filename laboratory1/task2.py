@@ -10,11 +10,12 @@ def check ():
 		check()
 
 def read ():
-	a = input ()
-	while (not bool (re.match(r'(?:[0]\.\d+)|(?:[1-9](?:\d+)?(?:\.\d+)?)', a))) | (float(a)<0) | (float(a)>180):
-		print ("Введіть число від 0 до 180")
+	while True:
 		a = input ()
-	return float(a)
+		if bool (re.match(r'(?:[0]\.\d+)|(?:[1-9](?:\d+)?(?:\.\d+)?)\Z', a)):
+			if ((float(a)>0) & (float(a)<180)):
+				return float(a)
+		print ("Введіть число від 0 до 180")
 
 def main ():
 	print ("Введіть перший і другий кут трикутника")
