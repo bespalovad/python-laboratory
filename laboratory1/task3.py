@@ -9,12 +9,11 @@ def check ():
 		check()
 
 def read ():
-	try:
-		a = float(input ())
-	except ValueError:
+	a = input ()
+	while not bool (re.match(r'(?:[0]\.\d+)|(?:[1-9](?:\d+)?(?:\.\d+)?)', a)):
 		print ("Введіть дійсне число")
-		a = read ()
-	return a
+		a = input ()
+	return float(a)
 
 def main ():
 	print ("Введіть значення аргументу")
