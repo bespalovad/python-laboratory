@@ -11,7 +11,7 @@ def check ():
 
 def read ():
 	a = input ()
-	while not bool(re.match(r'(?:[0]\.\d+)|(?:[1-9](?:\d+)?(?:\.\d+)?)', a)):
+	while not bool(re.match(r'(?:[0]\.\d+)|(?:[1-9](?:\d+)?(?:\.\d+)?)\Z', a)):
 		print ("Введіть число")
 		a = input ()
 	return float(a)
