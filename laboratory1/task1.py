@@ -1,4 +1,5 @@
 import math
+import re
 
 def check ():
 	ans = input ()
@@ -9,12 +10,11 @@ def check ():
 		check()
 
 def read ():
-	try:
-		a = float(input ())
-	except ValueError:
+	a = input ()
+	while not bool(re.match(r'(?:[0]\.\d+)|(?:[1-9](?:\d+)?(?:\.\d+)?)', a)):
 		print ("Введіть число")
-		a = read ()
-	return a
+		a = input ()
+	return float(a)
 
 def main ():
 	print ("Введіть перший і другий катет трикутника")
