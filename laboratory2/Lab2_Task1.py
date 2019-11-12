@@ -1,3 +1,5 @@
+import re
+
 def cont ():
 	ans = input ()
 	if ans == "y":
@@ -7,23 +9,18 @@ def cont ():
 		cont()
 
 def read_float ():
-	try:
-		a = float(input ())
-	except ValueError:
-		print ("Введіть число")
-		a = read_float ()
-	return a
+	a = input ()
+	while not bool (re.match(r'[+-]?((?:[0]\.\d+)|(?:[1-9](?:\d+)?(?:\.\d+)?))\Z', a)):
+		print ("Введіть дійсне число")
+		a = input ()
+	return float(a)
 	
 def read_natur ():
-	try:
-		a = int(input ())
-	except ValueError:
+	a = input ()
+	while not bool (re.match(r'[1-9](\d+)?\Z', a)):
 		print ("Введіть натуральне число")
-		a = read_natur ()
-	if (a < 1):
-		print ("Введіть натуральне число")
-		a = read_natur ()
-	return a
+		a = input ()
+	return int(a)
 
 def main ():
 	print ("Введіть кількість ітерацій")
