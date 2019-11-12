@@ -1,3 +1,5 @@
+import re
+
 def cont ():
 	ans = input ()
 	if ans == "y":
@@ -7,14 +9,10 @@ def cont ():
 		cont()
 	
 def read_natur ():
-	try:
-		a = int(input ())
-	except ValueError:
+	a = input ()
+	while not bool (re.match(r'[1-9](\d+)?\Z', a)):
 		print ("Введіть натуральне число")
-		a = read_natur ()
-	if (a < 1):
-		print ("Введіть натуральне число")
-		a = read_natur ()
+		a = input ()
 	return a
 
 def main ():
